@@ -1,0 +1,273 @@
+//reset
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+.attribution {
+    font-size: 11px;
+    text-align: center;
+    position: absolute;
+    bottom: -1.5rem;
+  }
+
+  .attribution a {
+    color: hsl(228, 45%, 44%);
+  }
+//var
+$main-color: 	rgb(20, 20, 20);
+$header-color:	rgb(113, 111, 111);
+$border-color: 	rgb(219, 219, 219);
+$accent-color:rgb(133, 77, 255);
+$alarm-color:	rgb(255, 87, 87);
+//fonts
+@font-face {
+    font-weight: 800; /* Соответствует значению normal */
+    font-family: Poppins-Extrabold;
+    src: url("../fonts/Poppins-ExtraBoldItalic.ttf");
+  }
+@font-face {
+    font-weight: 700; /* Соответствует значению normal */
+    font-family: Poppins-bold;
+    src: url("../fonts/Poppins-Bold.ttf");
+  }
+@font-face {
+    font-weight: 400; /* Соответствует значению normal */
+    font-family: Poppins-Regular;
+    src: url("../fonts/Poppins-Regular.ttf");
+  }
+// mixins
+@mixin df-c-c{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+@mixin df-r-c{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+//=========
+:root{
+    font-size: 16px;
+}
+body{
+    max-width: 1440px;
+    margin: auto;
+    background-color: rgb(241, 241, 241);
+    padding: 2rem;
+   @include df-c-c();
+    .calc{
+        background-color:	rgb(255, 255, 255);
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        max-width: 50rem;
+        border-radius: 24px 24px 65px 24px;
+        
+    }
+    .calc__header{
+        align-self:flex-start;
+        @include df-r-c();
+        max-width: 90%;
+        min-width: 90%;
+        padding: 4%;
+        font-family: Poppins-Regular, sans-serif;
+        color: $header-color;
+        .item{
+            display: flex;
+            flex-direction: column;
+            width: 27%;
+        }
+        .item__label{
+            font-size: 3vmin;
+        }
+        
+         input{
+            font-family: Poppins-Bold, sans-serif;
+            color:  $header-color;
+            margin: 8% 2%;
+            max-width: 70%;
+            font-size: 2rem;
+            border: .5px solid $border-color;
+            padding: 4%;
+            border-radius: 4px;
+           
+        }
+        ::placeholder{
+            color:  $header-color;
+        }
+        
+    }
+    .calc__line{
+        // padding: 4%;
+        position: relative;
+        margin: 2rem auto 0;
+        width: 90%;
+        max-height: 3rem;
+        border-top: 1px solid $border-color;
+        img{
+            opacity: 0;
+        }
+    }
+    input.arrow{
+        background-color:$accent-color;
+        background-image: url(../images/icon-arrow.svg);
+        background-position: center center;
+        background-size: 90%;
+        background-repeat: no-repeat;
+        border:none;
+        width: 3rem;
+        height: 3rem;
+        border-radius:50%;
+        position: absolute;
+        right: 0;
+        top:-50%;
+        
+    }
+   .calc__output{
+    padding: 0 4% 4%;
+    font-family: Poppins-Extrabold;
+    // font-size: 13vmin;
+    color: $main-color;
+    .output__num{
+        color: $accent-color;
+    }
+   }
+   .item__sub{
+    font-size: .5rem;
+    color:$alarm-color;
+   }
+}
+.calc__output{
+    font-size: 8rem;
+}
+//common classes
+.wrong{
+    color:$alarm-color;
+}
+.displayNone{
+    opacity: 0;
+}
+.disabled{
+    background-color:$border-color !important;
+}
+@media (orientation: portrait) and (max-width:1920px) { 
+    body{
+        .calc{
+            max-width: 40rem;
+        }
+    }
+    .calc__output{
+        font-size: 7vmin;
+    }
+}
+@media (orientation: landscape) and (max-width:1920px){ 
+    body{
+        .calc{
+            max-width: 40rem;
+        }
+    }
+    .calc__output{
+        font-size: 9vmin;
+
+    }
+}
+@media (orientation: portrait) and (max-width:920px) { 
+    body{
+        .calc{
+            max-width: 40rem;
+        }
+    }
+    .calc__output{
+        font-size: 11vmin;
+    }
+}
+@media (orientation: landscape) and (max-width:920px){ 
+    body{
+        .calc{
+            max-width: 40rem;
+        }
+    }
+    .calc__output{
+        font-size: 12vmin;
+
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body{
+        .calc__header{
+            .item{
+                width: 33%;
+            }
+            input{
+                max-width: 23vmin;
+            }
+        }
+        input.arrow{
+        right: 44%;
+       
+    }
+    }
+    
+}
+@media screen and (max-width: 425px) {
+    body {
+        .calc__header{
+            .item__label{
+                font-size: 5vmin;
+            }
+        } 
+        .calc__header {
+         input{
+            font-size: 1.5rem;
+    }
+    }
+    }
+    
+   
+
+}
