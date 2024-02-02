@@ -21,14 +21,17 @@ alarm.forEach((el) => {
 
 submit.disabled = true;
 submit.classList.add("disabled");
-
 inputs.forEach(input => {
-    input.addEventListener("mousemove", (e) => {
-    e.preventDefault();
-     validate();
-    } );
+    input.addEventListener("mousemove", validate);
   
-})
+});
+// inputs.forEach(input => {
+//     input.addEventListener("mousemove", (e) => {
+//     e.preventDefault();
+//      validate();
+//     } );
+  
+// })
 // //touchend;???
 // inputs.forEach(input => {
 //      input.addEventListener("touchend", (e) => {
