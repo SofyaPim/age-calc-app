@@ -24,7 +24,10 @@ submit.classList.add("disabled");
 
 inputs.forEach(input => {
     input.addEventListener("mousemove", validate);
+    //touchmove;
+    input.addEventListener("touchmove", validate);
 })
+
 
 
 //========functons valid
