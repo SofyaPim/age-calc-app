@@ -24,6 +24,9 @@ submit.classList.add("disabled");
 
 inputs.forEach(input => {
     input.addEventListener("mousemove", validate);
+  
+})
+inputs.forEach(input => {
     //touchmove;
     input.addEventListener("touchmove", validate);
 })
