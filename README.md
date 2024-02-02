@@ -14,8 +14,8 @@ adaptive BEM layout
 ## Submitting 
 
 Submit my solution on the platform . 
+Follow  ["My solution"](https://www.frontendmentor.io/solutions/responsive-app-using-sass-js-4bFxCZXMyW) 
 
-Follow  ["Complete guide to submitting solutions"](https://medium.com/frontend-mentor/a-mysubmit) 
 ### Built with
 
 - Semantic HTML5 markup
