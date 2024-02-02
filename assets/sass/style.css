@@ -52,8 +52,7 @@ table {
 .attribution {
   font-size: 11px;
   text-align: center;
-  position: absolute;
-  bottom: -1.5rem;
+  padding-top: 1.5rem;
 }
 
 .attribution a {
@@ -88,6 +87,14 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+body .wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
 }
 body .calc {
   background-color: rgb(255, 255, 255);
@@ -174,7 +181,7 @@ body .item__sub {
   font-size: 8rem;
 }
 
-.wrong {
+.alarmMark {
   color: rgb(255, 87, 87);
 }
 

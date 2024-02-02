@@ -8,8 +8,12 @@ const day = form.querySelector("#day"),
   submit = form.querySelector("input.arrow");
 const inputs = form.querySelectorAll(".number");
 const alarm = form.querySelectorAll(".item__sub");
+const inputSup = form.querySelectorAll(".tem__label");
 
-
+// ===========
+inputSup.forEach((el) => {
+  el.classList.remove("alarmMark");
+});
 // ==========
 alarm.forEach((el) => {
   el.classList.add("displayNone");
@@ -19,65 +23,81 @@ submit.disabled = true;
 submit.classList.add("disabled");
 
 inputs.forEach(input => {
-    input.addEventListener("change", validate);
+    input.addEventListener("mousemove", validate);
 })
 
 
 //========functons valid
 function validate() {
-    let check = 0;
-    //days
-     if (
-       day.value.length > 2 ||
-       day.value.length <= 0 ||
-       day.value <= 0 ||
-       day.value > 31 ||
-       ((month.value == 4 ||
-         month.value == 6 ||
-         month.value == 9 ||
-         month.value == 11) &&
-         day.value > 30) ||
-         (month.value == 2 && day.value > 28 )
-     ) {
-       
-       day.nextElementSibling.classList.remove("displayNone");
-     } else {
-       day.nextElementSibling.classList.add("displayNone");
-       check++;
-     }
-     //months
-      if (
-        month.value.length > 2 ||
-        month.value.length <= 0 ||
-        month.value < 0 ||
-        month.value > 12 ||
-        (day.value >= 31 &&
-          (month.value == 4 ||
-            month.value == 6 ||
-            month.value == 9 ||
-            month.value == 11)) ||
-        (day.value > 28 && month.value == 2)
-      ) {
-        month.nextElementSibling.classList.remove("displayNone");
-      } else {
-        month.nextElementSibling.classList.add("displayNone");
-         check++;
-      }
-      //years
-        let date = new Date();
-        let now = date.getFullYear();
+  let check = 0;
+  //years
+  let date = new Date();
+  let now = date.getFullYear();
+  // ---------- проверка на высокосность
 
-        if (year.value.length > 4 || year.value.length <= 0 || year.value > now) {
-          year.nextElementSibling.classList.remove("displayNone");
-        } else {
-          year.nextElementSibling.classList.add("displayNone");
-           check++;
-        }
-        if(check == 3){
-            submit.disabled = false;
-            submit.classList.remove("disabled");
-        }
-        console.log(check);
+  let leapYear = new Date(year.value, 1, 29).getDate();
+
+  if (leapYear == 29) {
+    console.log("высокосный");
+  }
+
+  // --------------
+  if (year.value.length > 4 || year.value.length <= 0 || year.value > now) {
+    year.nextElementSibling.classList.remove("displayNone");
+     year.previousElementSibling.classList.add("alarmMark");
+  } else {
+    year.previousElementSibling.classList.remove("alarmMark");
+    year.nextElementSibling.classList.add("displayNone");
+    check++;
+  }
+  //days
+  if (
+    day.value.length > 2 ||
+    day.value.length <= 0 ||
+    day.value <= 0 ||
+    day.value > 31 ||
+    ((month.value == 4 ||
+      month.value == 6 ||
+      month.value == 9 ||
+      month.value == 11) &&
+      day.value > 30) ||
+    (month.value == 2 && day.value > 28 && leapYear != 29) ||
+    (day.value > 29 && month.value == 2 && leapYear == 29)
+  ) {
+    day.nextElementSibling.classList.remove("displayNone");
+     day.previousElementSibling.classList.add("alarmMark");
+  } else {
+     day.previousElementSibling.classList.remove("alarmMark");
+    day.nextElementSibling.classList.add("displayNone");
+    check++;
+  }
+  //months
+  if (
+    month.value.length > 2 ||
+    month.value.length <= 0 ||
+    month.value < 0 ||
+    month.value > 12 ||
+    (day.value >= 31 &&
+      (month.value == 4 ||
+        month.value == 6 ||
+        month.value == 9 ||
+        month.value == 11)) ||
+    (day.value > 28 && month.value == 2 && leapYear != 29) ||
+    (day.value > 29 && month.value == 2 && leapYear == 29)
+  ) {
+    month.nextElementSibling.classList.remove("displayNone");
+    month.previousElementSibling.classList.add("alarmMark");
+  } else {
+    month.previousElementSibling.classList.remove("alarmMark");
+    month.nextElementSibling.classList.add("displayNone");
+    check++;
+  }
+
+  if (check == 3) {
+    submit.disabled = false;
+    submit.classList.remove("disabled");
+  }
+  console.log(check);
 }
 
 
@@ -141,3 +161,32 @@ inputs.forEach((input) => {
   input.value = '';
 });
  };
+
+//  поиск высокосного года
+
+
+// let leapYear = new Date(myYear, 1, 29).getDate();
+// if (leapYear == 29) alert("Да");
+// else alert("Нет");
+// // ======
+// if(((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0)){
+//     console.log('Да');
+// } else {
+//     console.log('Нет');
+// }
+// // =====
+// function getLastLeapYear() {
+//   const year = new Date().getFullYear();
+//   const diff = year % 4;
+//   return year - diff;
+// }
+
+// console.log(getLastLeapYear());
+// let start = 1900,
+//   end = 2016;
+
+// for (let y = start; y <= end; y++) {
+//   if ((y % 4 == 0 && y % 100 != 0) || y % 400 == 0) {
+//     console.log(y);
+//   }
+// }
