@@ -1,5 +1,4 @@
-#the project is still in development. You need to finish writing the READMEfile and submit the solution
-https://sofyapim.github.io/age-calc-app/index.html
+#the project is still in development.  [solution](https://sofyapim.github.io/age-calc-app/index.html)
 
 # Frontend Mentor - Age calculator app
 
