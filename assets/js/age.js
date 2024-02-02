@@ -27,8 +27,8 @@ inputs.forEach(input => {
   
 })
 inputs.forEach(input => {
-    //touchmove;
-    input.addEventListener("touchmove", validate);
+    //touchend;
+    input.addEventListener("touchend", validate);
 })
 
 
