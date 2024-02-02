@@ -25,6 +25,13 @@ inputs.forEach(input => {
     input.addEventListener("mousemove", validate);
   
 });
+
+//touchmove
+inputs.forEach(input => {
+     input.addEventListener("touchmove", (e) => {
+       e.preventDefault();
+       validate();
+});
 // inputs.forEach(input => {
 //     input.addEventListener("mousemove", (e) => {
 //     e.preventDefault();
