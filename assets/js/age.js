@@ -29,14 +29,14 @@ inputs.forEach(input => {
     } );
   
 })
-//touchend;
-inputs.forEach(input => {
-     input.addEventListener("touchend", (e) => {
-       e.preventDefault();
-       validate();
-     });
+// //touchend;???
+// inputs.forEach(input => {
+//      input.addEventListener("touchend", (e) => {
+//        e.preventDefault();
+//        validate();
+//      });
   
-})
+// })
 
 
 
