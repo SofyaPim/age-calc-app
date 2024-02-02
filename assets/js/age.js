@@ -23,13 +23,21 @@ submit.disabled = true;
 submit.classList.add("disabled");
 
 inputs.forEach(input => {
-    input.addEventListener("mousemove", validate);
+    input.addEventListener("mousemove", (e) => {
+    e.preventDefault();
+     validate();
+    } );
   
 })
+//touchend;
 inputs.forEach(input => {
-    //touchend;
-    input.addEventListener("touchend", validate);
+     input.addEventListener("touchend", (e) => {
+       e.preventDefault();
+       validate();
+     });
+  
 })
+
 
 
 
