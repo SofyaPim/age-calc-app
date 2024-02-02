@@ -1,4 +1,4 @@
-#the project is still in development.  [solution](https://sofyapim.github.io/age-calc-app/index.html)
+#the project is still in development.  [solution here](https://sofyapim.github.io/age-calc-app/index.html)
 
 # Frontend Mentor - Age calculator app
 
@@ -11,9 +11,8 @@ Mouse movement events on the input, a variant with a touch is still in developme
 
 adaptive BEM layout
 ## Submitting 
-
-Submit my solution on the platform . 
-Follow  ["My solution"](https://www.frontendmentor.io/solutions/responsive-app-using-sass-js-4bFxCZXMyW) 
+My solution on the platform . 
+Follow  ["My solution on the platform "](https://www.frontendmentor.io/solutions/responsive-app-using-sass-js-4bFxCZXMyW) 
 
 ### Built with
 
