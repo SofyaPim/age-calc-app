@@ -88,6 +88,14 @@ body {
   justify-content: center;
   align-items: center;
 }
+body h1 {
+  opacity: 0;
+  font-size: 0;
+  line-height: 0;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+}
 body .wrapper {
   display: flex;
   flex-direction: column;
