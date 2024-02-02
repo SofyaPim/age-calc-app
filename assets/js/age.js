@@ -26,14 +26,14 @@ inputs.forEach(input => {
     input.addEventListener("mousemove", validate);
   
 });
-// //touchend;
-inputs.forEach(input => {
-     input.addEventListener("touchend", (e) => {
-       e.preventDefault();
-       validate();
-     });
+ //touchend;
+// inputs.forEach(input => {
+//      input.addEventListener("touchend", (e) => {
+//        e.preventDefault();
+//        validate();
+//      });
   
-})
+// })
 
 
 //========functons valid
