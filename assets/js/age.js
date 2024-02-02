@@ -21,34 +21,19 @@ alarm.forEach((el) => {
 
 submit.disabled = true;
 submit.classList.add("disabled");
+
 inputs.forEach(input => {
     input.addEventListener("mousemove", validate);
   
 });
-
-//touchmove
+// //touchend;
 inputs.forEach(input => {
-     input.addEventListener("touchmove", (e) => {
+     input.addEventListener("touchend", (e) => {
        e.preventDefault();
        validate();
-});
-// inputs.forEach(input => {
-//     input.addEventListener("mousemove", (e) => {
-//     e.preventDefault();
-//      validate();
-//     } );
+     });
   
-// })
-// //touchend;???
-// inputs.forEach(input => {
-//      input.addEventListener("touchend", (e) => {
-//        e.preventDefault();
-//        validate();
-//      });
-  
-// })
-
-
+})
 
 
 //========functons valid
@@ -186,31 +171,3 @@ inputs.forEach((input) => {
 });
  };
 
-//  поиск высокосного года
-
-
-// let leapYear = new Date(myYear, 1, 29).getDate();
-// if (leapYear == 29) alert("Да");
-// else alert("Нет");
-// // ======
-// if(((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0)){
-//     console.log('Да');
-// } else {
-//     console.log('Нет');
-// }
-// // =====
-// function getLastLeapYear() {
-//   const year = new Date().getFullYear();
-//   const diff = year % 4;
-//   return year - diff;
-// }
-
-// console.log(getLastLeapYear());
-// let start = 1900,
-//   end = 2016;
-
-// for (let y = start; y <= end; y++) {
-//   if ((y % 4 == 0 && y % 100 != 0) || y % 400 == 0) {
-//     console.log(y);
-//   }
-// }
